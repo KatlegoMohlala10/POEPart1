@@ -70,4 +70,18 @@ public class POEAccountRegistrationTest {
         ext.registerUser(username, password, "John", "Doe");
         assertFalse(ext.loginUser("wrong_user", "wrong_pass"), "Login should fail.");
     }
+    
+    
+    @Test
+    public void testUsernameFormatReturnsTrue() {
+        Login ext = new Login();
+        String username = "kyl_1";
+        assertTrue(ext.checkUsername(username), "Username format check should return true.");
+    }
+    @Test
+    public void testUsernameFormatReturnsFalse() {
+        Login ext = new Login();
+        String username = "kyle";
+        assertFalse(ext.checkUsername(username), "Username format check should return false.");
+    }
 }
