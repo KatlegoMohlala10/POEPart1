@@ -18,4 +18,11 @@ public class Login {
     public boolean checkUsername(String username) {
         return username.contains("_") && username.length() <= 5;
     }
+    // Method to check password complexity
+    public boolean checkPasswordComplexity(String password) {
+        boolean hasUpperCase = !password.equals(password.toLowerCase());
+        boolean hasNumber = password.matches(".*\\d.*");
+        boolean hasSpecialChar = password.matches(".*[^a-zA-Z0-9].*");
+        return password.length() >= 8 && hasUpperCase && hasNumber && hasSpecialChar;
+    }
 }
