@@ -43,4 +43,8 @@ public class Login {
             }
         }
     }
+    // Method to check login credentials
+    public boolean loginUser(String username, String password) {
+        return username.equals(storedUsername) && password.equals(storedPassword);
+    }
 }
