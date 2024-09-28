@@ -9,7 +9,8 @@ import java.util.*;
  * @author Katlego Mohlala
  */
 public class POEAccountRegistration {
-
+    //GitHub repository is https://github.com/KatlegoMohlala10/POEPart1.git
+    
     public static void main(String[] args) {
         //Declarations
         String firstName, lastName, username, password;
