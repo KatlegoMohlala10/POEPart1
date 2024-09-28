@@ -26,5 +26,8 @@ public class POEAccountRegistration {
         username = log.next();
         System.out.println("Create a new password: ");
         password = log.next();
+        
+        //Register user
+        ext.registerUser(username, password, firstName, lastName);
     }
 }
