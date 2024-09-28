@@ -13,4 +13,9 @@ public class Login {
     private String storedPassword;
     private String firstName;
     private String lastName;
+    
+    // Method to check username validity
+    public boolean checkUsername(String username) {
+        return username.contains("_") && username.length() <= 5;
+    }
 }

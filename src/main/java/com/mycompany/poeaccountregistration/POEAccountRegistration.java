@@ -16,5 +16,15 @@ public class POEAccountRegistration {
         Scanner log = new Scanner(System.in);
         //Initiate the class object 
         Login ext = new Login();
+        
+        //Prompting user
+        System.out.println("Enter your first name: ");
+        firstName = log.next();
+        System.out.println("Enter your last name: ");
+        lastName = log.next();
+        System.out.println("Create a new username: ");
+        username = log.next();
+        System.out.println("Create a new password: ");
+        password = log.next();
     }
 }
