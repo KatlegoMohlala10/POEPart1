@@ -84,4 +84,17 @@ public class POEAccountRegistrationTest {
         String username = "kyle";
         assertFalse(ext.checkUsername(username), "Username format check should return false.");
     }
+    
+    @Test
+    public void testPasswordComplexityReturnsTrue() {
+        Login ext = new Login();
+        String password = "Ch&&sec@ke99!";
+        assertTrue(ext.checkPasswordComplexity(password), "Password complexity check should return true.");
+    }
+    @Test
+    public void testPasswordComplexityReturnsFalse() {
+        Login ext = new Login();
+        String password = "password";
+        assertFalse(ext.checkPasswordComplexity(password), "Password complexity check should return false.");
+    }
 }
