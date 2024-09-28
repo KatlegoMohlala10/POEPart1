@@ -54,4 +54,20 @@ public class POEAccountRegistrationTest {
         assertFalse(ext.checkPasswordComplexity(password), "Password should not meet complexity requirements.");
     }
     
+    @Test
+    public void testLoginSuccessful() {
+        Login ext = new Login();
+        String username = "user_test";
+        String password = "Password@1";
+        ext.registerUser(username, password, "John", "Doe");
+        assertTrue(ext.loginUser(username, password), "Login should be successful.");
+    }
+    @Test
+    public void testLoginFailed() {
+        Login ext = new Login();
+        String username = "user_test";
+        String password = "Password@1";
+        ext.registerUser(username, password, "John", "Doe");
+        assertFalse(ext.loginUser("wrong_user", "wrong_pass"), "Login should fail.");
+    }
 }
