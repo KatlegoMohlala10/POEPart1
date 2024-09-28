@@ -47,4 +47,12 @@ public class Login {
     public boolean loginUser(String username, String password) {
         return username.equals(storedUsername) && password.equals(storedPassword);
     }
+    // Method to display login status 
+    public void returnLoginStatus(String username, String password) {
+        if (loginUser(username, password)) {
+            System.out.println("Welcome " + firstName + " " + lastName + ". It is great to see you again.");
+        } else {
+            System.out.println("Username or password incorrect, please try again.");
+        }
+    }
 }
