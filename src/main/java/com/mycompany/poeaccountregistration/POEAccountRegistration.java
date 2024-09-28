@@ -38,5 +38,10 @@ public class POEAccountRegistration {
         System.out.println("Enter password: ");
         String loginPassword;
         loginPassword = log.next();
+        
+        // Check login status
+        ext.returnLoginStatus(loginUsername, loginPassword);
+        
+        log.close();
     }
 }
