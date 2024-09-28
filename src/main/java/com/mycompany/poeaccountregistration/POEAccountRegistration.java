@@ -29,5 +29,14 @@ public class POEAccountRegistration {
         
         //Register user
         ext.registerUser(username, password, firstName, lastName);
+        
+        // Ask for login
+        System.out.println("\nPlease log in to your account.");
+        System.out.println("Enter username: ");
+        String loginUsername = log.next();
+
+        System.out.println("Enter password: ");
+        String loginPassword;
+        loginPassword = log.next();
     }
 }
