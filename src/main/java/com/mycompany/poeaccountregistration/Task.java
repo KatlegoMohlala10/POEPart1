@@ -110,4 +110,30 @@ public class Task {
         // Show task details using JOptionPane
         printTaskDetails();
     }
+    
+    // New method to capture task details from the user
+    public void captureTask(Scanner scanner) {
+        System.out.println("Enter Task Name: ");
+        taskName = scanner.nextLine();
+        
+        System.out.println("Enter Task Description (must be less than 50 characters): ");
+        taskDescription = scanner.nextLine();
+        while (!checkTaskDescription()) {
+            System.out.println("Please enter a task description of less than 50 characters.");
+            taskDescription = scanner.nextLine();
+        }
+
+        System.out.println("Enter Developer Details (First and Last Name): ");
+        developerDetails = scanner.nextLine();
+
+        System.out.println("Enter Task Duration (hours): ");
+        taskDuration = scanner.nextInt();
+        scanner.nextLine();  // Clear the buffer
+
+        System.out.println("Select Task Status (To Do, Doing, Done): ");
+        taskStatus = scanner.nextLine();
+
+        // Generate the TaskID based on the input
+        createTaskID();
+    }
 }
