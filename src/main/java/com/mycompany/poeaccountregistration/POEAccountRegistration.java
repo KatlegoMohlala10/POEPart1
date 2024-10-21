@@ -12,22 +12,11 @@ public class POEAccountRegistration {
     //GitHub repository is https://github.com/KatlegoMohlala10/POEPart1.git
     
     public static void main(String[] args) {
-        //Declarations
-        String firstName, lastName, username, password;
-        //Initiate the class object
-        try (Scanner log = new Scanner(System.in)) {
-            //Initiate the class object
-            Login ext = new Login();
-            
-            //Prompting user
-            System.out.println("Enter your first name: ");
-            firstName = log.next();
-            System.out.println("Enter your last name: ");
-            lastName = log.next();
-            System.out.println("Create a new username: ");
-            username = log.next();
-            System.out.println("Create a new password: ");
-            password = log.next();
+        // Prompt user for registration details using JOptionPane
+        String firstName = JOptionPane.showInputDialog("Enter your First Name:");
+        String lastName = JOptionPane.showInputDialog("Enter your Last Name:");
+        String username = JOptionPane.showInputDialog("Create a Username:");
+        String password = JOptionPane.showInputDialog("Create a Password:");
             
             //Register user
             ext.registerUser(username, password, firstName, lastName);
