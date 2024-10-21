@@ -70,4 +70,12 @@ public class Task {
     public String getTaskID() {
         return taskID;
     }
+    
+    // New method to capture multiple tasks
+    public void captureMultipleTasks(int numberOfTasks) {
+        for (int i = 0; i < numberOfTasks; i++) {
+            JOptionPane.showMessageDialog(null, "Entering details for Task " + (i + 1));
+            captureTaskFromJOptionPane(i + 1); // Capture task details for each task
+        }
+    }
 }
