@@ -136,4 +136,36 @@ public class Task {
         // Generate the TaskID based on the input
         createTaskID();
     }
+    
+    // Method to capture task details from JOptionPane
+    public void captureTaskFromJOptionPane() {
+        taskName = JOptionPane.showInputDialog("Enter Task Name:");
+        taskDescription = JOptionPane.showInputDialog("Enter Task Description (must be less than 50 characters):");
+
+        while (!checkTaskDescription()) {
+            taskDescription = JOptionPane.showInputDialog("Please enter a task description of less than 50 characters.");
+        }
+
+        developerDetails = JOptionPane.showInputDialog("Enter Developer Details (First and Last Name):");
+        
+        String taskDurationStr = JOptionPane.showInputDialog("Enter Task Duration (hours):");
+        taskDuration = Integer.parseInt(taskDurationStr);
+
+        String[] statuses = {"To Do", "Doing", "Done"};
+        taskStatus = (String) JOptionPane.showInputDialog(
+                null,
+                "Select Task Status:",
+                "Task Status",
+                JOptionPane.QUESTION_MESSAGE,
+                null,
+                statuses,
+                statuses[0]
+        );
+
+        // Generate TaskID
+        createTaskID();
+
+        // Show task details using JOptionPane
+        printTaskDetails();
+    }
 }
