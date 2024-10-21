@@ -3,7 +3,7 @@
  */
 
 package com.mycompany.poeaccountregistration;
-import java.util.*;
+import javax.swing.JOptionPane;
 /**
  *
  * @author Katlego Mohlala
