@@ -3,7 +3,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package com.mycompany.poeaccountregistration;
-import java.util.*;
+
+import java.util.HashMap;
+import javax.swing.JOptionPane;
 /**
  *
  * @author Katlego Mohlala
