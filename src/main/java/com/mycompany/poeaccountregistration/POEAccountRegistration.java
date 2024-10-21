@@ -18,20 +18,20 @@ public class POEAccountRegistration {
         String username = JOptionPane.showInputDialog("Create a Username:");
         String password = JOptionPane.showInputDialog("Create a Password:");
             
-            //Register user
-            ext.registerUser(username, password, firstName, lastName);
-            
-            // Ask for login
-            System.out.println("\nPlease log in to your account.");
-            System.out.println("Enter username: ");
-            String loginUsername = log.next();
-            
-            System.out.println("Enter password: ");
-            String loginPassword;
-            loginPassword = log.next();
-            
-            // Check login status
-            ext.returnLoginStatus(loginUsername, loginPassword);
+            // Simulating registration and storing the details
+        Login login = new Login();
+        login.registerUser(firstName, lastName, username, password);
+
+        // Proceed to login
+        String loginUsername = JOptionPane.showInputDialog("Enter your Username:");
+        String loginPassword = JOptionPane.showInputDialog("Enter your Password:");
+
+        // Check if login is successful
+        if (login.returnLoginStatus(loginUsername, loginPassword)) {
+            JOptionPane.showMessageDialog(null, "Welcome to EasyKanban!", "Login Successful", JOptionPane.INFORMATION_MESSAGE);
+            login.showMenu();
+        } else {
+            JOptionPane.showMessageDialog(null, "Login Failed! Incorrect username or password.", "Error", JOptionPane.ERROR_MESSAGE);
         }
     }
 }
