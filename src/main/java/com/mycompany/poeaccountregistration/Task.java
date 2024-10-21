@@ -168,4 +168,31 @@ public class Task {
         // Show task details using JOptionPane
         printTaskDetails();
     }
+    
+    public boolean checkTaskDescription() {
+        return taskDescription.length() <= 50;
+    }
+
+    public String createTaskID() {
+        String taskNamePart = taskName.length() >= 2 ? taskName.substring(0, 2).toUpperCase() : taskName.toUpperCase();
+        String developerPart = developerDetails.length() >= 3 ? developerDetails.substring(developerDetails.length() - 3).toUpperCase() : developerDetails.toUpperCase();
+        this.taskID = taskNamePart + ":" + taskNumber + ":" + developerPart;
+        return taskID;
+    }
+
+    public void printTaskDetails() {
+        String taskDetails = "Task Status: " + taskStatus + "\n" +
+                             "Developer Details: " + developerDetails + "\n" +
+                             "Task Number: " + taskNumber + "\n" +
+                             "Task Name: " + taskName + "\n" +
+                             "Task Description: " + taskDescription + "\n" +
+                             "Task ID: " + taskID + "\n" +
+                             "Task Duration: " + taskDuration + " hours";
+
+        JOptionPane.showMessageDialog(null, taskDetails, "Task Details", JOptionPane.INFORMATION_MESSAGE);
+    }
+    // Method to return the total hours for the task
+    public int returnTotalHours() {
+        return taskDuration;
+    }
 }
