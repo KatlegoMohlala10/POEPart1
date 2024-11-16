@@ -6,18 +6,12 @@ package com.mycompany.poeaccountregistration;
 
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
-import javax.swing.JOptionPane;
+
 /**
  *
  * @author Katlego Mohlala
  */
 public class POEAccountRegistrationTest {
-    // Helper method to simulate JOptionPane input
-    private void mockJOptionPaneInputs(String firstName, String lastName, String username, String password) {
-        // Setting the input dialog responses using reflection (not shown here, as this is typically not feasible in unit tests)
-        // However, for actual testing, consider using a library like Mockito to mock the JOptionPane input.
-        // You can simulate user inputs like this if you have a library that allows it or test the UI separately.
-    }
 
     @Test
     public void testUserRegistrationAndLogin() {
