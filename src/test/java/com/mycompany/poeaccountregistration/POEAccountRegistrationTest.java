@@ -24,4 +24,22 @@ public class POEAccountRegistrationTest {
         login.registerUser("John", "Doe", validUsername, validPassword);
         assertTrue(login.isLoggedIn());
     }
+    
+    @Test
+    public void testInvalidUsername() {
+        Login login = new Login();
+        String invalidUsername = "user";
+        String validPassword = "Pass123!";
+        login.registerUser("John", "Doe", invalidUsername, validPassword);
+        assertFalse(login.isLoggedIn());
+    }
+    
+    @Test
+    public void testInvalidPassword() {
+        Login login = new Login();
+        String validUsername = "user_";
+        String invalidPassword = "password";
+        login.registerUser("John", "Doe", validUsername, invalidPassword);
+        assertFalse(login.isLoggedIn());
+    }
 }
