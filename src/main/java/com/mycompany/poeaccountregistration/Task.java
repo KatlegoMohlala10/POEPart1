@@ -41,26 +41,43 @@ public class Task {
                 "Duration: " + taskDuration + " hours");
     }
 
-    public String createTaskID() {
-        String taskNamePart = taskName.length() >= 2 ? taskName.substring(0, 2).toUpperCase() : taskName.toUpperCase();
-        String developerPart = developerDetails.length() >= 3 ? developerDetails.substring(developerDetails.length() - 3).toUpperCase() : developerDetails.toUpperCase();
-        this.taskID = taskNamePart + ":" + taskNumber + ":" + developerPart;
-        return taskID;
+    // Method to generate Task ID
+    private String generateTaskID(String taskName, int taskNumber, String developerName) {
+        String firstTwoLetters = taskName.substring(0, 2).toUpperCase();
+        String lastThreeLetters = developerName.substring(developerName.length() - 3).toUpperCase();
+        return firstTwoLetters + ":" + taskNumber + ":" + lastThreeLetters;
     }
-
-    public void printTaskDetails() {
-        String taskDetails = "Task Status: " + taskStatus + "\n" +
-                             "Developer Details: " + developerDetails + "\n" +
-                             "Task Number: " + taskNumber + "\n" +
-                             "Task Name: " + taskName + "\n" +
-                             "Task Description: " + taskDescription + "\n" +
-                             "Task ID: " + taskID + "\n" +
-                             "Task Duration: " + taskDuration + " hours";
-
-        JOptionPane.showMessageDialog(null, taskDetails, "Task Details", JOptionPane.INFORMATION_MESSAGE);
+    
+    // Display all tasks with "Done" status
+    public void displayDoneTasks() {
+        StringBuilder result = new StringBuilder("Tasks with 'Done' status:\n");
+        for (int i = 0; i < taskStatuses.size(); i++) {
+            if ("Done".equalsIgnoreCase(taskStatuses.get(i))) {
+                result.append("Developer: ").append(developerNames.get(i))
+                      .append(", Task Name: ").append(taskNames.get(i))
+                      .append(", Duration: ").append(taskDurations.get(i)).append(" hours\n");
+            }
+        }
+        JOptionPane.showMessageDialog(null, result.toString());
     }
-    // Method to return the total hours for the task
-    public int returnTotalHours() {
-        return taskDuration;
+    
+    // Display task with the longest duration
+    public void displayLongestTask() {
+        if (taskDurations.isEmpty()) {
+            JOptionPane.showMessageDialog(null, "No tasks available.");
+            return;
+        }
+        int maxDurationIndex = 0;
+        for (int i = 1; i < taskDurations.size(); i++) {
+            if (taskDurations.get(i) > taskDurations.get(maxDurationIndex)) {
+                maxDurationIndex = i;
+            }
+        }
+        JOptionPane.showMessageDialog(null, """
+                                            Task with the longest duration:
+                                            Developer: """ + developerNames.get(maxDurationIndex) +
+                ", Duration: " + taskDurations.get(maxDurationIndex) + " hours");
     }
+    
+    
 }
