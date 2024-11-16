@@ -62,39 +62,18 @@ public class Login {
         }
     }
 
-    // Method to verify login credentials
-    public boolean returnLoginStatus(String username, String password) {
-        // Check if username exists and password matches
-        return users.containsKey(username) && users.get(username).equals(password);
+    public boolean loginUser(String username, String password) {
+        if (this.username.equals(username) && this.password.equals(password)) {
+            isLoggedIn = true;
+            JOptionPane.showMessageDialog(null, "Welcome, " + firstName + " " + lastName + ". It is great to see you again.");
+            return true;
+        } else {
+            JOptionPane.showMessageDialog(null, "Username and/or password is incorrect.");
+            return false;
+        }
     }
     
-    // Method to show the menu after successful login
-    public void showMenu() {
-        while (true) {
-            String menu = "1. Add Tasks\n2. Show Reports (coming soon)\n3. Quit";
-            String choice = JOptionPane.showInputDialog(menu);
-
-            switch (choice) {
-                case "1":
-                    // Ask how many tasks to add
-                    String taskCountStr = JOptionPane.showInputDialog("How many tasks would you like to add?");
-                    int taskCount = Integer.parseInt(taskCountStr);
-
-                    Task task = new Task(taskCount); // Create a new task instance
-                    task.captureMultipleTasks(taskCount); // Capture the specified number of tasks
-                    break;
-                case "2":
-                    // Show report functionality (to be implemented)
-                    JOptionPane.showMessageDialog(null, "Reports are under development.", "Report", JOptionPane.INFORMATION_MESSAGE);
-                    break;
-                case "3":
-                    // Exit the program
-                    JOptionPane.showMessageDialog(null, "Thank you for using EasyKanban! Exiting...");
-                    System.exit(0);
-                    break;
-                default:
-                    JOptionPane.showMessageDialog(null, "Invalid option. Please try again.", "Error", JOptionPane.ERROR_MESSAGE);
-            }
-        }
+    public boolean isLoggedIn() {
+        return isLoggedIn;
     }
 }
