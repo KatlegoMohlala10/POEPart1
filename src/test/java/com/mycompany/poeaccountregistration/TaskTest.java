@@ -4,6 +4,7 @@
  */
 package com.mycompany.poeaccountregistration;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -12,6 +13,17 @@ import static org.junit.jupiter.api.Assertions.*;
  * @author Katlego Mohlala
  */
 public class TaskTest {
+    private Task taskManager;
+    
+    @BeforeEach
+    public void setUp() {
+        taskManager = new Task();
+        // Populate the Task arrays with the test data
+        taskManager.addTask("Mike Smith", "Create Login", "Secure login feature", 5, "To Do");
+        taskManager.addTask("Edward Harrison", "Create Add Features", "Add features", 8, "Doing");
+        taskManager.addTask("Samantha Paulson", "Create Reports", "Generate reports", 11, "Done");
+        taskManager.addTask("Glenda Oberholzer", "Add Arrays", "Implement arrays", 11, "To Do");
+    }
     
     // Test for Task Description length validation
     @Test
