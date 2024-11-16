@@ -130,5 +130,19 @@ public class Task {
         }
     }
     
-    
+    // Display full report of all tasks
+    public void displayAllTasksReport() {
+        StringBuilder report = new StringBuilder("All Tasks Report:\n");
+
+        for (int i = 0; i < taskNames.size(); i++) {
+            report.append("Task ").append(i + 1).append(":\n")
+                  .append("Developer: ").append(developerNames.get(i)).append("\n")
+                  .append("Task Name: ").append(taskNames.get(i)).append("\n")
+                  .append("Task ID: ").append(taskIDs.get(i)).append("\n")
+                  .append("Duration: ").append(taskDurations.get(i)).append(" hours\n")
+                  .append("Status: ").append(taskStatuses.get(i)).append("\n\n");
+        }
+
+        JOptionPane.showMessageDialog(null, report.toString());
+    }
 }
