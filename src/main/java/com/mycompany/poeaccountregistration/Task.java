@@ -4,72 +4,18 @@
  */
 package com.mycompany.poeaccountregistration;
 import javax.swing.JOptionPane;
-import java.util.*;
+import java.util.ArrayList;
 /**
  *
  * @author Katlego Mohlala
  */
 public class Task {
-    private int taskNumber;
-    private String taskName;
-    private String taskDescription;
-    private String developerDetails;
-    private int taskDuration;  // in hours
-    private String taskStatus;
-    private String taskID;
-    
-    public Task(int taskNumber) {
-        this.taskNumber = taskNumber;
-    }
-
-    // Getter and Setter methods
-    public String getTaskName() {
-        return taskName;
-    }
-
-    public void setTaskName(String taskName) {
-        this.taskName = taskName;
-    }
-
-    public String getTaskDescription() {
-        return taskDescription;
-    }
-
-    public void setTaskDescription(String taskDescription) {
-        this.taskDescription = taskDescription;
-    }
-
-    public String getDeveloperDetails() {
-        return developerDetails;
-    }
-
-    public void setDeveloperDetails(String developerDetails) {
-        this.developerDetails = developerDetails;
-    }
-
-    public int getTaskDuration() {
-        return taskDuration;
-    }
-
-    public void setTaskDuration(int taskDuration) {
-        this.taskDuration = taskDuration;
-    }
-
-    public String getTaskStatus() {
-        return taskStatus;
-    }
-
-    public void setTaskStatus(String taskStatus) {
-        this.taskStatus = taskStatus;
-    }
-
-    public int getTaskNumber() {
-        return taskNumber;
-    }
-
-    public String getTaskID() {
-        return taskID;
-    }
+    // Arrays to store task data
+    private final ArrayList<String> developerNames = new ArrayList<>();
+    private final ArrayList<String> taskNames = new ArrayList<>();
+    private final ArrayList<String> taskIDs = new ArrayList<>();
+    private final ArrayList<Integer> taskDurations = new ArrayList<>();
+    private final ArrayList<String> taskStatuses = new ArrayList<>();
     
     // New method to capture multiple tasks
     public void captureMultipleTasks(int numberOfTasks) {
