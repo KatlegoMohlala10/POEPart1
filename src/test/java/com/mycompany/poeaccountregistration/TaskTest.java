@@ -55,5 +55,19 @@ public class TaskTest {
         assertDoesNotThrow(() -> taskManager.searchTaskByName(expectedTaskName));
     }
     
+    @Test
+    public void testDeleteTaskByName() {
+        // Delete a task by name and ensure it's removed
+        String taskToDelete = "Create Reports";
+        assertDoesNotThrow(() -> taskManager.deleteTaskByName(taskToDelete));
+
+        // Search for the deleted task to ensure it no longer exists
+        assertDoesNotThrow(() -> taskManager.searchTaskByName(taskToDelete));
+    }
     
+    @Test
+    public void testDisplayAllTasksReport() {
+        // Display the full task report
+        assertDoesNotThrow(() -> taskManager.displayAllTasksReport());
+    }
 }
