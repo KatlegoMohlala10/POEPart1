@@ -62,5 +62,34 @@ public class POEAccountRegistration {
         }
     }
     
+    private static void addTask() {
+        String developer = JOptionPane.showInputDialog("Enter developer's full name:");
+        String taskName = JOptionPane.showInputDialog("Enter task name:");
+        String taskDescription = JOptionPane.showInputDialog("Enter task description (max 50 chars):");
+        if (taskDescription.length() > 50) {
+            JOptionPane.showMessageDialog(null, "Task description is too long. Must be under 50 characters.");
+            return;
+        }
+
+        int duration = Integer.parseInt(JOptionPane.showInputDialog("Enter task duration (in hours):"));
+        String[] statuses = {"To Do", "Doing", "Done"};
+        String status = (String) JOptionPane.showInputDialog(null, "Select Task Status:", "Task Status", JOptionPane.QUESTION_MESSAGE, null, statuses, statuses[0]);
+
+        taskManager.addTask(developer, taskName, taskDescription, duration, status);
+    }
     
+    private static void searchTaskByName() {
+        String taskName = JOptionPane.showInputDialog("Enter task name to search:");
+        taskManager.searchTaskByName(taskName);
+    }
+    
+    private static void deleteTaskByName() {
+        String taskName = JOptionPane.showInputDialog("Enter task name to delete:");
+        taskManager.deleteTaskByName(taskName);
+    }
+    
+    private static void searchTasksByDeveloper() {
+        String taskDeveloper = JOptionPane.showInputDialog("Enter task Developer to search for his tasks:");
+        taskManager.searchTasksByDeveloper(taskDeveloper);
+    }
 }
