@@ -79,5 +79,56 @@ public class Task {
                 ", Duration: " + taskDurations.get(maxDurationIndex) + " hours");
     }
     
+    // Search for a task by task name
+    public void searchTaskByName(String name) {
+        int index = taskNames.indexOf(name);
+        if (index != -1) {
+            JOptionPane.showMessageDialog(null, """
+                                                Task Found:
+                                                Task Name: """ + taskNames.get(index) +
+                    "\nDeveloper: " + developerNames.get(index) +
+                    "\nStatus: " + taskStatuses.get(index));
+        } else {
+            JOptionPane.showMessageDialog(null, "Task not found.");
+        }
+    }
+    
+    // Search tasks assigned to a specific developer
+    public void searchTasksByDeveloper(String developerName) {
+        StringBuilder result = new StringBuilder("Tasks for Developer: " + developerName + "\n");
+        boolean found = false;
+
+        for (int i = 0; i < developerNames.size(); i++) {
+            if (developerNames.get(i).equalsIgnoreCase(developerName)) {
+                found = true;
+                result.append("Task Name: ").append(taskNames.get(i))
+                      .append(", Status: ").append(taskStatuses.get(i)).append("\n");
+            }
+        }
+
+        if (found) {
+            JOptionPane.showMessageDialog(null, result.toString());
+        } else {
+            JOptionPane.showMessageDialog(null, "No tasks found for this developer.");
+        }
+    }
+    
+    // Delete a task by task name
+    public void deleteTaskByName(String taskName) {
+        int index = taskNames.indexOf(taskName);
+        if (index != -1) {
+            // Remove corresponding entries from all arrays
+            developerNames.remove(index);
+            taskNames.remove(index);
+            taskIDs.remove(index);
+            taskDurations.remove(index);
+            taskStatuses.remove(index);
+
+            JOptionPane.showMessageDialog(null, "Task '" + taskName + "' has been deleted.");
+        } else {
+            JOptionPane.showMessageDialog(null, "Task not found.");
+        }
+    }
+    
     
 }
